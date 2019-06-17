@@ -24,5 +24,48 @@ quasar dev
 
 ## 2. Add Quasar Feathers App Extension
 
+
+### Intent to Create
+
+From: https://github.com/quasarframework/app-extension-feathersjs
+
+```
+cd myproject
+quasar ext add @quasar/feathersjs
+```
+
+Adds 
+- feathersClient (required)
+  - Choose: (socket.io or primus) and/or rest 
+- feathersVuex (optional?) 
+- feathersAccounts (optional)
+- proxyAPIserver webpack config (optional)
+
+### From what exists
+
+From: https://docs.feathersjs.com/guides/chat/creating.html
+ and: https://docs.feathersjs.com/guides/basics/generator.html
+
+Node.js >= 8 is recommended.
+
+```
+npm install @feathersjs/cli -g
+feathers --version
+# should be 3.8.2 or greater
+
+cd myproject
+mkdir src-feathers
+cd src-feathers
+feathers generate app
+npm start
+# http://localhost:3030
+```
+
 ## 3. Add features
+
+As an example, let's add a group todo list?
+
 ## 4. Package and deploy
+
+As an example, let's package as docker image
+
