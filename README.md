@@ -24,8 +24,9 @@ quasar dev
 
 ## 2. Add Quasar Feathers App Extension
 
+### 2.a Installation
 
-### Intent to Create
+#### What we intend to create
 
 From: https://github.com/quasarframework/app-extension-feathersjs
 
@@ -41,16 +42,18 @@ Adds
 - feathersAccounts (optional)
 - proxyAPIserver webpack config (optional)
 
-### Manually, from what exists
+#### Manually, from what exists
 
 From: https://docs.feathersjs.com/guides/chat/creating.html
  and: https://docs.feathersjs.com/guides/basics/generator.html
 
 Node.js >= 8 is recommended.
 
+This is for the Feathers v4 beta
+
 ```
 npm r @feathersjs/cli -g
-npm i @feathersjs/cli -g
+npm i @feathersjs/cli@pre -g
 feathers --version
 # should be 3.9 or greater
 
@@ -62,6 +65,12 @@ feathers generate app
 npm start
 # http://localhost:3030
 ```
+
+### 2.b Integrate
+
+Glue it all together.
+
+
 
 ## 3. Add features
 
