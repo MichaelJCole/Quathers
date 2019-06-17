@@ -41,7 +41,7 @@ Adds
 - feathersAccounts (optional)
 - proxyAPIserver webpack config (optional)
 
-### From what exists
+### Manually, from what exists
 
 From: https://docs.feathersjs.com/guides/chat/creating.html
  and: https://docs.feathersjs.com/guides/basics/generator.html
@@ -49,14 +49,16 @@ From: https://docs.feathersjs.com/guides/chat/creating.html
 Node.js >= 8 is recommended.
 
 ```
-npm install @feathersjs/cli -g
+npm r @feathersjs/cli -g
+npm i @feathersjs/cli -g
 feathers --version
-# should be 3.8.2 or greater
+# should be 3.9 or greater
 
 cd myproject
 mkdir src-feathers
 cd src-feathers
 feathers generate app
+# accept defaults, except Jest
 npm start
 # http://localhost:3030
 ```
