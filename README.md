@@ -55,7 +55,7 @@ This is for the Feathers v4 beta
 npm r @feathersjs/cli -g
 npm i @feathersjs/cli@pre -g
 feathers --version
-# should be 3.9 or greater
+# should be >= 4.x
 
 cd myproject
 mkdir src-feathers
