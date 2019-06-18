@@ -11,3 +11,9 @@ process.on('unhandledRejection', (reason, p) =>
 server.on('listening', () =>
   logger.info('Feathers application started on http://%s:%d', app.get('host'), port)
 );
+
+// Exit on ctrl-c when running in Docker container as PID 1. https://github.com/nodejs/node-v0.x-archive/issues/9131
+process.on('SIGTERM', function() {
+  console.log('\nCaught SIGTERM, stopping gracefully');
+  process.exit(1);
+});
