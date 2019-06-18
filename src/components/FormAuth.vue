@@ -227,7 +227,7 @@ export default {
       function forgotSuccess () {
         // TODO FIXME.  This UI doesn't create value.  It should show a message.
         self.cardState = 'Login'
-        self.$refs.password.focus()
+        if (self.$refs.password) self.$refs.password.focus()
         self.$notify.success('Please check your email and click the link')
       }
 
@@ -247,7 +247,7 @@ export default {
           case 'bad-request':
             msg = 'Click the verification link, then come back and reset your password.'
             // This is part of an error where the account is expected to have verified before it can "forgot"
-            self.$account.resendVerifySignup({ email: this.email })
+            self.$account.resendVerifySignup({ email: self.email })
             break
         }
         self.$notify.error(msg)

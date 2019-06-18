@@ -2,15 +2,14 @@
  * Add feathersClient as Vue.$feathers
  */
 import AuthManagement from 'feathers-authentication-management/lib/client'
-import { LocalStorage } from 'quasar'
+// import { LocalStorage } from 'quasar'
 import feathersClient from '../lib/feathersClient' // new Auth API https://crow.docs.feathersjs.com/api/authentication/client.html#authentication-client
 
 export default ({ router, store, Vue }) => {
-  const self = this
   const auth = {
     rememberMe (email) {
-      if (email) return LocalStorage.set('remember_me', email)
-      console.log('Help Me! I create a compiletime webpack error: quasar_src_plugins_LocalStorage_js__WEBPACK_IMPORTED_MODULE_1__.default.getItem is not a function')
+      console.log('Help Me! I create a compile time webpack error: quasar_src_plugins_LocalStorage_js__WEBPACK_IMPORTED_MODULE_1__.default.getItem is not a function')
+      // if (email) return LocalStorage.set('remember_me', email)
       // return LocalStorage.getItem('remember_me') || ''
     },
 
@@ -47,22 +46,15 @@ export default ({ router, store, Vue }) => {
     register ({ email, password }) {
       // Create the user
       return store
-        .dispatch('users/create', {
-          email,
-          password
-        })
+        .dispatch('users/create', { email, password })
         // Then login
         .then(() => {
-          return auth.login({
-            strategy: 'local',
-            email,
-            password
-          })
+          return auth.login({ strategy: 'local', email, password })
         })
     },
 
     forgot ({ email }) {
-      return self.$account.sendResetPwd({ email })
+      return Vue.prototype.$account.sendResetPwd({ email })
     }
   }
   Vue.prototype.$auth = auth

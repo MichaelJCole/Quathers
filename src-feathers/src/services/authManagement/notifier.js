@@ -16,7 +16,6 @@ module.exports = function(app) {
     let tokenLink, email;
 
     switch (type) {
-    case 'verifySignup':
     case 'resendVerifySignup': //sending the user the verification email
       tokenLink = getLink('verify-email', user.verifyToken);
       email = {
@@ -27,6 +26,11 @@ module.exports = function(app) {
               <p><a href="${tokenLink}">Verify your email here</a></p>`
       };
       return sendEmail(email);
+
+    case 'verifySignup':
+      // Do nothing special after verification
+      console.log(user.email + ' verified.');
+      break;
 
     case 'sendResetPwd':
       tokenLink = getLink('reset-password', user.resetToken);
