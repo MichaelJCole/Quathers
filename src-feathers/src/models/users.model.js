@@ -9,8 +9,16 @@ module.exports = function (app) {
     email: {type: String, unique: true, lowercase: true},
     password: { type: String },
   
-  
+    // Added by feathers generate authentication 
     githubId: { type: String },
+
+    // For feathers-authentication-management QUATHERS
+    isVerified: { type: Boolean },
+    verifyToken: { type: String },
+    verifyExpires: { type: Date },
+    verifyChanges: { type: Object },
+    resetToken: { type: String },
+    resetExpires: { type: Date }
   
   }, {
     timestamps: true

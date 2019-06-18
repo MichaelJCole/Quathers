@@ -77,7 +77,7 @@ yarn add @feathersjs/authentication-client @feathersjs/feathers @feathersjs/rest
 Feathers package soup
 
 ```
-npm i --save feathers-mongoose @feathersjs/authentication @feathersjs/authentication-jwt @feathersjs/authentication-local
+npm i --save feathers-mongoose @feathersjs/authentication @feathersjs/authentication-jwt @feathersjs/authentication-local feathers-mailer nodemailer nodemailer-sparkpost-transport
 ```
 
 Add a bunch of files.  See commits.

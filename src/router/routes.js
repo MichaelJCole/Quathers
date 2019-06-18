@@ -12,6 +12,7 @@ const routes = [
     path: '/',
     component: () => import('layouts/MyLayout.vue'),
     children: [
+      { path: 'profile', component: () => import('pages/Index.vue') },
       {
         name: 'reset-password',
         path: 'reset-password',

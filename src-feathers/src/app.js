@@ -10,12 +10,10 @@ const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
 const socketio = require('@feathersjs/socketio');
 
-
-const testAuthentication = require('./test-authentication');
 const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
-const channels = require('./channels');
+// const channels = require('./channels'); // socket.io
 
 const mongoose = require('./mongoose');
 
@@ -43,9 +41,6 @@ app.configure(socketio());
 app.use('/', helmet.noCache());
 app.use('/authentication', helmet.noCache());
 
-// Configure Authentication QUATHERS
-app.configure(testAuthentication);
-
 app.configure(mongoose);
 
 // Configure other middleware (see `middleware/index.js`)
@@ -54,7 +49,7 @@ app.configure(authentication);
 // Set up our services (see `services/index.js`)
 app.configure(services);
 // Set up event channels (see channels.js)
-app.configure(channels);
+// app.configure(channels); // socket.io
 
 // Configure a middleware for 404s and the error handler
 app.use(express.notFound());

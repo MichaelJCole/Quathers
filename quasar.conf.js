@@ -47,7 +47,8 @@ module.exports = function (ctx) {
         'QSpace',
         'QCardActions',
         'QInput',
-        'QToggle'
+        'QToggle',
+        'QChip'
       ],
 
       directives: [
@@ -69,7 +70,7 @@ module.exports = function (ctx) {
 
     build: {
       scopeHoisting: true,
-      // vueRouterMode: 'history',
+      vueRouterMode: 'history',
       // vueCompiler: true,
       // gzip: true,
       // analyze: true,

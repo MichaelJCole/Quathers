@@ -8,9 +8,7 @@ module.exports = function(app) {
       .service('mailer')
       .create(email)
       .catch(err => {
-        if (app.get('sparkPostApiKey'))
-          // TODO FIXME sentry.io
-          console.log('EMAIL TRANSPORT ERROR:', err);
+        console.log('EMAIL TRANSPORT ERROR:', err);
       });
   }
 
@@ -26,8 +24,7 @@ module.exports = function(app) {
         subject: 'Verify Signup',
         html: `
               <p>Hi there!</p>
-              <p><a href="${tokenLink}">Verify your email here</a></p>
-              <p>FUN, EFFECTIVE, and with FRIENDS<br><a href="https://vote.capnow.org">vote.CAPNow.org</a></p>`
+              <p><a href="${tokenLink}">Verify your email here</a></p>`
       };
       return sendEmail(email);
 
@@ -38,8 +35,7 @@ module.exports = function(app) {
         subject: 'Reset Password',
         html: `
               <p>Hi there!</p>
-              <p><a href="${tokenLink}">Reset your password here</a></p>
-              <p>FUN, EFFECTIVE, and with FRIENDS<br><a href="https://vote.capnow.org">vote.CAPNow.org</a></p>`
+              <p><a href="${tokenLink}">Reset your password here</a></p>`
       };
       return sendEmail(email);
 
@@ -49,8 +45,7 @@ module.exports = function(app) {
         subject: 'Your password was reset.',
         html: `
               <p>Hi there!</p>
-              <p>Your password was reset.</p>
-              <p>FUN, EFFECTIVE, and with FRIENDS<br><a href="https://vote.capnow.org">vote.CAPNow.org</a></p>`
+              <p>Your password was reset.</p>`
       };
       return sendEmail(email);
 
@@ -60,8 +55,7 @@ module.exports = function(app) {
         subject: 'Password Change',
         html: `
               <p>Hi there!</p>
-              <p>Your password was changed.</p>
-              <p>FUN, EFFECTIVE, and with FRIENDS<br><a href="https://vote.capnow.org">vote.CAPNow.org</a></p>`
+              <p>Your password was changed.</p>`
       };
       return sendEmail(email);
 
@@ -71,8 +65,7 @@ module.exports = function(app) {
         subject: 'Email Changed',
         html: `
               <p>Hi there!</p>
-              <p>Your email address was changed.</p>
-              <p>FUN, EFFECTIVE, and with FRIENDS<br><a href="https://vote.capnow.org">vote.CAPNow.org</a></p>`
+              <p>Your email address was changed.</p>`
       };
       return sendEmail(email);
 

@@ -19,7 +19,7 @@
 
     <!-- Login dialog and form -->
     <q-dialog bottom v-model="showAuthModal" persistent>
-      <modal-auth @closeMe="closeAuthModal()">
+      <modal-auth @closeMe="showAuthModal = false;">
         <q-btn icon="close" flat round dense v-close-popup/>
       </modal-auth>
     </q-dialog>

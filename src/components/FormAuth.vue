@@ -84,7 +84,7 @@
         </div>
         <div class="verified" v-else-if="verifyState ==='verified'">
           <q-chip color="positive" text-color="white" icon="alarm">Success!</q-chip>
-          <p>Close this window to play the game!</p>
+          <p>Close this tab to continue!</p>
         </div>
         <div class="error" v-else>
           <q-chip color="red" text-color="white" icon="alarm">Snap!</q-chip>
@@ -111,7 +111,7 @@
         </div>
         <div class="reset" v-else-if="resetState ==='reset'">
           <q-chip color="positive" text-color="white" icon="alarm">Success!</q-chip>
-          <p>Close this tab to play the game!</p>
+          <p>Close this tab to continue!</p>
         </div>
         <div class="error" v-else>
           <q-chip color="red" text-color="white" icon="alarm">Snap!</q-chip>
@@ -183,7 +183,7 @@ export default {
     switch (this.cardState) {
       // verify form
       case 'Verify Email':
-        this.$authManagement
+        this.$account
           .verifySignupLong(this.$route.query.token)
           .then(success => {
             this.verifyState = 'verified'
@@ -221,7 +221,7 @@ export default {
         self.$notify.success(`Welcome ${email}!`)
         self.email = ''
         self.password = ''
-        self.$emit('loggedIn', true)
+        self.$emit('logged-in', true)
       }
 
       function forgotSuccess () {
@@ -247,7 +247,7 @@ export default {
           case 'bad-request':
             msg = 'Click the verification link, then come back and reset your password.'
             // This is part of an error where the account is expected to have verified before it can "forgot"
-            self.$authManagement.resendVerifySignup({ email: this.email })
+            self.$account.resendVerifySignup({ email: this.email })
             break
         }
         self.$notify.error(msg)
@@ -260,7 +260,7 @@ export default {
               email: this.email,
               password: this.password
             })
-            .then(loginSuccess)
+            .then(() => { loginSuccess(this.email) })
             .catch(formError)
           break
         case 'Register':
@@ -272,7 +272,7 @@ export default {
                 email: this.email,
                 password: this.password
               })
-              .then(loginSuccess)
+              .then(() => { loginSuccess(this.email) })
               .catch(formError)
           }
           break
@@ -283,7 +283,7 @@ export default {
             .catch(formError)
           break
         case 'Change Password': // this is the response page to "Reset Password"
-          this.$authManagement
+          this.$account
             .resetPwdLong(this.$route.query.token, this.password)
             .then(success => {
               this.resetState = 'reset'
