@@ -6,5 +6,40 @@
     "default": 10,
     "max": 50
   },
-  "mongodb": "mongodb://localhost:27017/src_feathers"
+  "mongodb": "mongodb://localhost:27017/src_feathers",
+  "authentication": {
+    "secret": "85e21c62052b5bd135f9d59d40e8b87185297c8e65a9d029e054c35f5065d8d190150d210765db2f287eef14cb2760ff629ffdf7b3e070685fa8ff55cec4317e5bd5d5e29e7ed5f21ab52a211f3fa3fb6078c5f7c87e08c6abc7bb98d945bcf7fc6f52b6df3d4db437f8f7f8e03486ef2ec7c6e5a547668937206b22752311f49a528b3d291f8b912c9b184c03985f020419dd646376b199e3bfe528cdccd09b8383114d997029a91455adc011c5a8ca9e0781a221b8cc76146ef798877ab14a712faa36f044e5f3855c44337f087552dbfcc8ffa143ae89c0ec33a6f264389a4e284702de3e509c13faf81a8ce37d3356f3a68d9615bab02e477cf07ab4561d",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "github": {
+      "clientID": "your github client id",
+      "clientSecret": "your github client secret",
+      "successRedirect": "/"
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  }
 }

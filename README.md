@@ -49,13 +49,13 @@ From: https://docs.feathersjs.com/guides/chat/creating.html
 
 Node.js >= 8 is recommended.
 
-This is for the Feathers v4 beta
+This is for the Feathers v3
 
 ```
 npm r @feathersjs/cli -g
-npm i @feathersjs/cli@pre -g
+npm i @feathersjs/cli -g
 feathers --version
-# should be >= 4.x
+# should be >= 3.9
 
 cd myproject
 mkdir src-feathers
@@ -68,16 +68,19 @@ npm start
 
 ### 2.b Integrate
 
-Quasar packages
+Quasar package soup
 
 ```
 yarn add @feathersjs/authentication-client @feathersjs/feathers @feathersjs/rest-client @feathersjs/socketio-client axios cookie-storage feathers-vuex socket.io-client feathers-authentication-management
 ```
 
-Feathers packages
+Feathers package soup
 
 ```
-npm i feathers-mongoose @feathersjs/authentication
+npm i --save feathers-mongoose @feathersjs/authentication @feathersjs/authentication-jwt @feathersjs/authentication-local
+```
+
+Add a bunch of files.  See commits.
 
 ## 3. Add features
 

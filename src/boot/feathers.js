@@ -33,10 +33,15 @@ export default ({ Vue, store, router }) => {
       if (authData !== 'jwt') {
         authData.strategy = 'local'
       }
+      console.log('start')
       return store
         .dispatch('auth/authenticate', authData)
         .then(() => {
+          console.log('complete')
           if (authData.email) self.$auth.rememberMe(authData.email)
+        }).catch(err => {
+          console.log(err)
+          throw err
         })
     },
 

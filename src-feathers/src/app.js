@@ -11,12 +11,15 @@ const express = require('@feathersjs/express');
 const socketio = require('@feathersjs/socketio');
 
 
+const testAuthentication = require('./test-authentication');
 const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
 const channels = require('./channels');
 
 const mongoose = require('./mongoose');
+
+const authentication = require('./authentication');
 
 const app = express(feathers());
 
@@ -36,10 +39,18 @@ app.use('/', express.static(app.get('public')));
 app.configure(express.rest());
 app.configure(socketio());
 
+// Prevent API caching  QUATHERS
+app.use('/', helmet.noCache());
+app.use('/authentication', helmet.noCache());
+
+// Configure Authentication QUATHERS
+app.configure(testAuthentication);
+
 app.configure(mongoose);
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);
+app.configure(authentication);
 // Set up our services (see `services/index.js`)
 app.configure(services);
 // Set up event channels (see channels.js)
