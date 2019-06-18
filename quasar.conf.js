@@ -5,6 +5,9 @@ module.exports = function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     boot: [
+      'components',
+      'notify',
+      'feathers'
     ],
 
     css: [
@@ -36,11 +39,21 @@ module.exports = function (ctx) {
         'QList',
         'QItem',
         'QItemSection',
-        'QItemLabel'
+        'QItemLabel',
+        // FormAuth.vue
+        'QDialog',
+        'QCard',
+        'QCardSection',
+        'QSpace',
+        'QCardActions',
+        'QInput',
+        'QToggle'
       ],
 
       directives: [
-        'Ripple'
+        'Ripple',
+        // FormAuth.vue
+        'ClosePopup'
       ],
 
       // Quasar plugins

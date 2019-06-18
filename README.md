@@ -68,9 +68,16 @@ npm start
 
 ### 2.b Integrate
 
-Glue it all together.
+Quasar packages
 
+```
+yarn add @feathersjs/authentication-client @feathersjs/feathers @feathersjs/rest-client @feathersjs/socketio-client axios cookie-storage feathers-vuex socket.io-client feathers-authentication-management
+```
 
+Feathers packages
+
+```
+npm i feathers-mongoose @feathersjs/authentication
 
 ## 3. Add features
 

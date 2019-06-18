@@ -6,20 +6,20 @@ const feathers = require('@feathersjs/feathers')
 const restClient = require('@feathersjs/rest-client')
 const axios = require('axios')
 // Socket.io transport
-const socketio = require('@feathersjs/socketio-client')
-const io = require('socket.io-client')
+// const socketio = require('@feathersjs/socketio-client')
+// const io = require('socket.io-client')
 // Auth library
 const auth = require('@feathersjs/authentication-client')
 import { CookieStorage } from 'cookie-storage'
 
 // Our App
 
-const url = 'http://localhost:8080'
+const apiUrl = 'http://localhost:3030'
 const app = feathers()
 
 // Setup the transport (Rest, Socket, etc.) here
-app.configure(restClient(url).axios(axios))
-app.configure(socketio(io(url)))
+app.configure(restClient(apiUrl).axios(axios))
+// app.configure(socketio(io(apiUrl)))  // Only one default client can be configured?
 
 // Available options are listed in the "Options" section
 const storage = new CookieStorage()

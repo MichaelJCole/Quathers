@@ -6,7 +6,35 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Index.vue') }
     ]
+  },
+  {
+    // Auth routes
+    path: '/',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      {
+        name: 'reset-password',
+        path: 'reset-password',
+        component: () => import('pages/AuthResetPassword.vue')
+      },
+      {
+        name: 'verify-email',
+        path: 'verify-email',
+        component: () => import('pages/AuthVerifyEmail.vue')
+      },
+      {
+        name: 'error',
+        path: 'error',
+        component: () => import('pages/Error404.vue')
+      },
+      {
+        name: '404',
+        path: '*',
+        component: () => import('pages/Error404.vue')
+      }
+    ]
   }
+
 ]
 
 // Always leave this as last one
