@@ -26,7 +26,7 @@ quasar dev
 
 ### 2.a Installation
 
-#### What we intend to create
+#### FUTURE: What we intend to create
 
 From: https://github.com/quasarframework/app-extension-feathersjs
 
@@ -42,7 +42,7 @@ Adds
 - feathersAccounts (optional)
 - proxyAPIserver webpack config (optional)
 
-#### Manually, from what exists
+#### PRESENT: Creating from what exists
 
 From: https://docs.feathersjs.com/guides/chat/creating.html
  and: https://docs.feathersjs.com/guides/basics/generator.html
