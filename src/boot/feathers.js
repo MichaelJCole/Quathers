@@ -2,15 +2,25 @@
  * Add feathersClient as Vue.$feathers
  */
 import AuthManagement from 'feathers-authentication-management/lib/client'
-// import { LocalStorage } from 'quasar'
+import { LocalStorage } from 'quasar'
 import feathersClient from '../lib/feathersClient' // new Auth API https://crow.docs.feathersjs.com/api/authentication/client.html#authentication-client
+import feathersVuex from '../lib/feathersVuex'
+
+// Try to log user in from stored token
+// Ignore errors: Stored token not found or invalid, ignore
+if (window.localStorage && window.localStorage.getItem('feathers-jwt')) {
+  console.log(window.localStorage.getItem('feathers-jwt'))
+  feathersVuex.auth.authenticate({
+    strategy: 'jwt',
+    accessToken: window.localStorage.getItem('feathers-jwt')
+  })
+}
 
 export default ({ router, store, Vue }) => {
   const auth = {
     rememberMe (email) {
-      console.log('Help Me! I create a compile time webpack error: quasar_src_plugins_LocalStorage_js__WEBPACK_IMPORTED_MODULE_1__.default.getItem is not a function')
-      // if (email) return LocalStorage.set('remember_me', email)
-      // return LocalStorage.getItem('remember_me') || ''
+      if (email) return LocalStorage.set('remember_me', email)
+      return LocalStorage.getItem('remember_me') || ''
     },
 
     currentUser (prop) {

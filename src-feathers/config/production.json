@@ -1,4 +1,5 @@
 {
   "host": "src-feathers-app.feathersjs.com",
-  "port": "PORT"
+  "port": "PORT",
+  "public": "../public/"
 }

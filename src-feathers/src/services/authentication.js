@@ -8,8 +8,9 @@ module.exports = app => {
   authService.register('jwt', new JWTStrategy());
   authService.register('local', new LocalStrategy());
 
-  // app.on('login', (authResult, params, context) => {})
+  // app.on('authenticated', (authResult, params, context) => {})
   // app.on('logout', (authResult, params, context) => {})
+  // app.on('reauthentication-error', errorHandler)
 
   app.use('/authentication', authService);
   app.configure(expressOauth());

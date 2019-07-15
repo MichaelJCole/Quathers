@@ -2,7 +2,7 @@
   "redirect": "http://localhost:8080",
   "host": "localhost",
   "port": 3030,
-  "public": "../public/",
+  "public": "../dist/spa",
   "paginate": {
     "default": 10,
     "max": 50
@@ -40,7 +40,7 @@
       "enabled": true,
       "name": "feathers-jwt",
       "httpOnly": false,
-      "secure": false
+      "secure": true
     }
   }
 }

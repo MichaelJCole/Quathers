@@ -8,9 +8,9 @@ const axios = require('axios')
 // Socket.io transport
 // const socketio = require('@feathersjs/socketio-client')
 // const io = require('socket.io-client')
+
 // Auth library
 const auth = require('@feathersjs/authentication-client')
-import { CookieStorage } from 'cookie-storage'
 
 // Our App
 
@@ -22,7 +22,7 @@ app.configure(restClient(apiUrl).axios(axios))
 // app.configure(socketio(io(apiUrl)))  // Only one default client can be configured?
 
 // Available options are listed in the "Options" section
-const storage = new CookieStorage()
-app.configure(auth({ storage }))
+app.configure(auth({ storageKey: 'feathers-jwt', storage: window.localStorage }))
 
+// Export the app
 export default app
