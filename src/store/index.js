@@ -36,14 +36,11 @@ export default function (/* { ssrContext } */) {
   })
 
   // Try to log user in from stored token
-
-  if (window.localStorage && window.localStorage.getItem('feathers-jwt')) {
-    Store.dispatch('auth/authenticate').catch(error => {
-      if (!error.message.includes('Could not find stored JWT')) {
-        console.error(error)
-      }
-    })
-  }
+  Store.dispatch('auth/authenticate').catch(error => {
+    if (!error.message.includes('Could not find stored JWT')) {
+      console.error(error)
+    }
+  })
 
   return Store
 }

@@ -4,89 +4,24 @@ This is an example and stepthrough of a Quasar (1.0) / Feathers (4.0) integratio
 
 The idea is to create the packages, documentation, and community on using these two great projects together.
 
-The Developer Story starts here:
+Quasar and Vue use Vuex for state, so we use FeathersVuex to put data into the Vuex store.  FeathersVuex also puts the current user data in the store, so we are authenticating with FeathersVuex.
 
-## 1. Install Quasar
-
-From: https://quasar.dev/quasar-cli/installation
-
-Node.js >= 8.9.0 is required.
+These 3 commands start the project:
 
 ```
-node --version
-npm uninstall -g quasar-cli
-npm install -g @quasar/cli
-quasar create myproject
-# Include vuex and all defaults
-cd myproject
-quasar dev
+./mongoStart.sh
+./quasarStart.sh
+./src-feathers/feathersStart.sh
 ```
 
-## 2. Add Quasar Feathers App Extension
+And `./src-feathers/build.sh` should make a Docker image if you have the tooling installed (and probably Linux)
 
-### 2.a Installation
+That makes an end-to-end developer story for Quasar + Feathers which is great!  
 
-#### FUTURE: What we intend to create
+The challenge is it seems a little brittle and I'm not 100% on the security (the blogs I followed kinda gave up at the end).  I think Feathers-Vuex is doing most of the heavy lifting on the integration.  
 
-From: https://github.com/quasarframework/app-extension-feathersjs
-
-```
-cd myproject
-quasar ext add @quasar/feathersjs
-```
-
-Adds 
-- feathersClient (required)
-  - Choose: (socket.io or primus) and/or rest 
-- feathersVuex (optional?) 
-- feathersAccounts (optional)
-- proxyAPIserver webpack config (optional)
-
-#### PRESENT: Creating from what exists
-
-From: https://docs.feathersjs.com/guides/chat/creating.html
- and: https://docs.feathersjs.com/guides/basics/generator.html
-
-Node.js >= 8 is recommended.
-
-This is for the Feathers v3
+You can see the difference between Quasar/Feathers base installs and the glue code with: 
 
 ```
-npm r @feathersjs/cli -g
-npm i @feathersjs/cli -g
-feathers --version
-# should be >= 3.9
-
-cd myproject
-mkdir src-feathers
-cd src-feathers
-feathers generate app
-# accept defaults, except Jest
-npm start
-# http://localhost:3030
+git difftool -d master..2956b9e98da5a90c169133d64d6dc21f1c88c3e3
 ```
-
-### 2.b Integrate
-
-Quasar package soup
-
-```
-yarn add @feathersjs/authentication-client @feathersjs/feathers @feathersjs/rest-client @feathersjs/socketio-client axios cookie-storage feathers-vuex socket.io-client feathers-authentication-management
-```
-
-Feathers package soup
-
-```
-npm i --save feathers-mongoose @feathersjs/authentication @feathersjs/authentication-jwt @feathersjs/authentication-local feathers-mailer nodemailer nodemailer-sparkpost-transport
-```
-
-Add a bunch of files.  See commits.
-
-## 3. Add features
-
-As an example, let's add a group todo list?
-
-## 4. Package and deploy
-
-As an example, let's package as docker image
-
