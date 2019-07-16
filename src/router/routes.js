@@ -1,4 +1,7 @@
 
+/**
+ * Client side router
+ */
 const routes = [
   {
     path: '/',

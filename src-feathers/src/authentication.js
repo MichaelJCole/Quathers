@@ -30,4 +30,9 @@ module.exports = function (app) {
       ]
     }
   });
+
+  // app.on('authenticated', (authResult, params, context) => {})
+  // app.on('logout', (authResult, params, context) => {})
+  // app.on('reauthentication-error', errorHandler)
 };
+

@@ -1,3 +1,6 @@
+/**
+ * This is a module for notifications in Vue.  These are the "Welcome back" toaster-like popups
+ */
 export default ({ Vue, store, router }) => {
   Vue.prototype.$notify = {
     info (message, icon) {

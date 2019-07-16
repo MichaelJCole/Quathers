@@ -1,5 +1,7 @@
 /**
  * The Vuex Store integration
+ *
+ * See also: src/store/index.js
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -12,7 +14,6 @@ const { service, auth, FeathersVuex } = feathersVuex(feathersClient, {
   idField: '_id' // mongo default
   // enableEvents: true // TODO SECURITY Socket.IO
 })
-
 Vue.use(FeathersVuex)
 
 export { service as feathersService, auth as feathersAuth }

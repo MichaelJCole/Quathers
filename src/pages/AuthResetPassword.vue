@@ -8,6 +8,6 @@
 
 <script>
 /**
- * A reset password form
+ * A reset password landing page
  */
 </script>
