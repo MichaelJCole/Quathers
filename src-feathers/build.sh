@@ -22,9 +22,11 @@ cp -rf ../dist/spa/* public
 
 VERSION=$(node -p -e "require('./package.json').version")-$(git rev-parse --short HEAD)
 docker build -t $REPO:$VERSION . || exit 1
-docker push $REPO:$VERSION || exit 1
-
+# docker push $REPO:$VERSION || exit 1
 
 # Done
 echo "==========================================="
-echo "BUILT AND PUSHED $REPO:$VERSION FOR $BRANCH"
+echo "BUILT $REPO:$VERSION FOR $BRANCH"
+echo ""
+echo "Push with a command like this: docker push $REPO:$VERSION"
+
