@@ -18,8 +18,6 @@ And `./src-feathers/build.sh` should make a Docker image if you have the tooling
 
 That makes an end-to-end developer story for Quasar + Feathers which is great!  
 
-The challenge is it seems a little brittle and I'm not 100% on the security (the blogs I followed kinda gave up at the end).  I think Feathers-Vuex is doing most of the heavy lifting on the integration.  
-
 You can see the difference between Quasar/Feathers base installs and the glue code with: 
 
 ```
