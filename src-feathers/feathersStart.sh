@@ -1,5 +1,10 @@
 #!/bin/bash
 
-# This file is here because when it was in the root, I kept npm installing to the wrong part of the project.
+# Use node version in .nvmrc if present.
+[ -s "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh" && nvm install
 
+# Install packages
+[ ! -d "node_modules" ] && npm install
+
+# See package.json
 npm run dev

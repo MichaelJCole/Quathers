@@ -1,7 +1,8 @@
 <template>
   <q-page class="text-center">
     <div>
-      <img width="100" alt="Quasar logo" src="~assets/quasar-logo-full.svg" />
+      <h3>Quathers = Quasar + Feathers</h3>
+      <p>Hello, this is an experiment / starter project to use Quasar and Feathers together.</p>
     </div>
 
     <div>

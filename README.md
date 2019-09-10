@@ -1,25 +1,47 @@
 # Quasar/Feathers integration example
 
-This is an example and stepthrough of a Quasar (1.0) / Feathers (4.0) integration.
+![Quasar](https://cdn.quasar.dev/logo/svg/quasar-logo.svg)
+![Feathers](https://feathersjs.com/img/feathers-logo-wide.png)
 
-The idea is to create the packages, documentation, and community on using these two great projects together.
+Hello, this is an experiment / starter project integrating [Quasar](https://quasar.dev/) and [Feathers](https://feathersjs.com/) with a simple authentication system.
 
-Quasar and Vue use Vuex for state, so we use FeathersVuex to put data into the Vuex store.  FeathersVuex also puts the current user data in the store, so we are authenticating with FeathersVuex.
+Quasar uses [Vue](https://vuejs.org/) which in turn uses [Vuex](https://vuex.vuejs.org/) for state.
 
-These 3 commands start the project:
+[FeathersVuex](https://feathers-vuex.feathers-plus.com/) exposes FeathersJS services as Vuex plugin to extend the data store.  FeathersVuex has an authentication wrapper which convienently loads the current user's data in the store.  I think the Feathers team may have lost interest/momentum in maintaining FeathersVuex.  There's a 2.0pre, but it's not documented (yet?) and the 1.x versions have (had?) some package compatibility issues.  C'est la open source.
+
+The Quasar team picked up the idea for a [Quasar app extension](https://github.com/quasarframework/app-extension-feathersjs).
+
+For my part in this experiment, I created the integration code and authentication forms as an experiment in learning both frameworks and fostering open source.
+
+
+## Screenshot
+
+![screenshot.png]
+
+
+## Run Locally
+
+The development environment runs three processes:  
+- MongoDB: `mongod --dbpath="etc/db"`
+- Feathers: `nodemon src-feathers/src`
+- Quasar: `quasar dev`
+
+These scripts attempt to automate that for Linux:
 
 ```
 ./mongoStart.sh
-./quasarStart.sh
 ./src-feathers/feathersStart.sh
+./quasarStart.sh
 ```
 
-And `./src-feathers/build.sh` should make a Docker image if you have the tooling installed (and probably Linux)
+## Dockerize
 
-That makes an end-to-end developer story for Quasar + Feathers which is great!  
+To package and deploy the server, I created a [Docker image](https://github.com/MichaelJCole/Quathers/blob/master/src-feathers/Dockerfile) and [scripting](https://github.com/MichaelJCole/Quathers/blob/master/src-feathers/build.sh) to package Quasar and Feathers into a single process.
 
-You can see the difference between Quasar/Feathers base installs and the glue code with: 
+You need the proper tooling installed (and probably Linux)
 
-```
-git difftool -d master..2956b9e98da5a90c169133d64d6dc21f1c88c3e3
-```
+## El Fin!
+
+This project was a great experience learning and integrating these technologies and working to create collaboration in open source.
+
+That makes an end-to-end developer story for Quasar + Feathers which is an exciting start!
