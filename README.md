@@ -7,7 +7,7 @@ Hello, this is an experiment / starter project integrating [Quasar](https://quas
 
 Quasar uses [Vue](https://vuejs.org/) which in turn uses [Vuex](https://vuex.vuejs.org/) for state.
 
-[FeathersVuex](https://feathers-vuex.feathers-plus.com/) exposes FeathersJS services as Vuex plugin to extend the data store.  FeathersVuex has an authentication wrapper which convienently loads the current user's data in the store.  I think the Feathers team may have lost interest/momentum in maintaining FeathersVuex.  There's a 2.0pre, but it's not documented (yet?) and the 1.x versions have (had?) some package compatibility issues.  C'est la open source.
+[FeathersVuex](https://feathers-vuex.feathers-plus.com/) exposes FeathersJS services as Vuex plugins to extend the data store.  FeathersVuex has an authentication wrapper which convienently loads the current user's data in the store.  I think the Feathers team may have lost interest/momentum in maintaining FeathersVuex.  There's a 2.0pre, but it's not documented (yet?) and the 1.x versions have (had?) some package compatibility issues.  C'est la open source.
 
 The Quasar team picked up the idea for a [Quasar app extension](https://github.com/quasarframework/app-extension-feathersjs).
 
@@ -42,6 +42,6 @@ You need the proper tooling installed (and probably Linux)
 
 ## El Fin!
 
-This project was a great experience learning and integrating these technologies and working to create collaboration in open source.
+This project was a great experience learning and integrating these technologies, and I'm looking forward to seeing how they evolve in the future.
 
-That makes an end-to-end developer story for Quasar + Feathers which is an exciting start!
+That starter project makes an end-to-end developer story for Quasar + Feathers which is an exciting start!
