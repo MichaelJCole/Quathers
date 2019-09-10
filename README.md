@@ -1,7 +1,7 @@
 # Quasar/Feathers integration example
 
-<img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg" alt="Quasar" style="width:200px;"/>
-<img src="https://feathersjs.com/img/feathers-logo-wide.png" alt="Feathers" style="width:200px;"/>
+<img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg" alt="Quasar" width=200/>
+<img src="https://feathersjs.com/img/feathers-logo-wide.png" alt="Feathers" width=200/>
 
 Hello, this is an experiment / starter project integrating [Quasar](https://quasar.dev/) and [Feathers](https://feathersjs.com/) with a simple authentication system.
 
